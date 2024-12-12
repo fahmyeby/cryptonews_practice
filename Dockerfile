@@ -12,6 +12,7 @@ COPY src src
 
 # Set executable permission for mvnw
 RUN chmod +x mvnw
+#RUN chmod a+x mvnw
 
 # Run Maven to build the project
 RUN ./mvnw clean package -DskipTests
@@ -29,6 +30,7 @@ COPY --from=builder /compiledir/target/crypto_practice-0.0.1-SNAPSHOT.jar crypto
 
 # Set environment variables
 ENV SERVER_PORT=8080
+#ENV MY_API_KEY=xyz789
 
 # Expose port
 EXPOSE ${SERVER_PORT}
